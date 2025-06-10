@@ -1,0 +1,53 @@
+{%extends 'userprofile.html' %}
+{% block title %} Contact {% endblock title %}
+{% block body %}
+<header class="py-4 text-center">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <h2>Contact Us</h2>
+</header>
+<section>
+    <div class="container mt-5 d-flex justify-content-center flex-wrap">
+        <div class="rounded-icon mx-3">
+            <a href="Contact: 8429194655"><i class="fa fa-phone" style="font-size:48px;color:#3288A5"></i></a>
+        </div>
+        <div class="rounded-icon mx-3">
+            <a href="mailto:ananya4655@gmail.com"><i class="fa fa-envelope" style="font-size:48px;color:#3288A5"></i></a>
+        </div>
+        <div class="rounded-icon mx-3">
+            <a href="https://twitter.com/"><i class="fa fa-twitter" style="font-size:48px;color:#3288A5"></i></a>
+        </div>
+        <div class="rounded-icon mx-3">
+            <a href="https://www.facebook.com/"><i class="fa fa-facebook" style="font-size:48px;color:#3288A5"></i></a>
+        </div>
+        <div class="rounded-icon mx-3">
+            <a href="https://www.instagram.com/"><i class="fa fa-instagram" style="font-size:48px;color:#3288A5"></i></a>
+        </div>
+        <div class="rounded-icon mx-3">
+            <a href="https://www.linkedin.com/"><i class="fa fa-linkedin" style="font-size:48px;color:#3288A5"></i></a>
+        </div>
+    </div>
+    <div class="container mt-3 text-center">
+        <p><strong>Email:</strong> ananya4655@gmail.com</p>
+        <p><strong>Phone:</strong> +91 8429194655</p>
+    </div>
+</section>
+<style>
+    .rounded-icon {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        background-color: #f0f0f0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        transition: transform 0.3s ease-in-out; /* Added transition effect */
+    }
+    .rounded-icon:hover {
+        transform: scale(1.05); /* Slightly increase scale on hover */
+    }
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+{% endblock body %}

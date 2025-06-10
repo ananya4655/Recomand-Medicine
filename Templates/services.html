@@ -1,0 +1,91 @@
+
+{% extends 'userprofile.html' %}
+{% load static %}
+
+{% block title %} Health Services {% endblock title %}
+
+
+{% block style %} <link rel="stylesheet" href="{% static 'css/services.css' %}"> {% endblock style %}
+{% block body %}
+<div class="container">
+    {% comment %} <h2 class="text-center mb-5">Predicted Corner</h2> {% endcomment %}
+    <div class="col-md-8 mx-auto rounded border p-3">
+        <h1 class="text-center mb-5">Prediction Corner</h1>
+        <form method="post">
+            {% csrf_token %}
+            <div class="row mb-3 justify-content-center">
+                <label for="symptoms" class="col-sm-12 col-form-label text-center"style="font-size: larger; font-weight: bold;" >Enter your symptoms (comma-separated):</label>
+                <div class="col-sm-12">
+                    <input class="form-control" type="text" id="symptoms" name="symptoms" placeholder="Symptoms" required>
+                </div>
+            </div>
+            <div class="row">
+                <div class="offset-sm-4 col-sm-4 d-grid">
+                    <button type="submit" class="btn btn-btn btn-dark btn-lg btn-block">Predict</button>
+                </div>
+            </div>
+            
+        </form>
+    </div>
+
+    <div class="results">
+        <div class="column">
+            
+            {% comment %} <form method="post">
+                {% csrf_token %}
+                <div class="row mb-3 justify-content-center">
+                    <label for="symptoms" class="col-sm-12 col-form-label text-center" style="font-size: larger; font-weight: bold;">Enter your symptoms (comma-separated):</label>
+                    <div class="col-sm-12">
+                        <input class="form-control" type="text" id="symptoms" name="symptoms" placeholder="Symptoms" required>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="offset-sm-4 col-sm-4 d-grid">
+                        <button type="submit" class="btn btn-btn btn-dark btn-lg btn-block">Predict</button>
+                    </div>
+                </div>
+            </form> {% endcomment %}
+
+            
+            {% if predicted_disease %}
+            <h3>Symptoms</h3>
+            <p style="font-size: larger;">{{ user_symptoms }}</p>
+            <h3>Predicted Disease</h3>
+            <p style="font-size: larger;">{{ predicted_disease }}</p>
+            <h3>Description</h3>
+            <p style="font-size: larger;">{{ description }}</p>
+            {% endif %}
+        </div>
+        {% if predicted_disease %}
+        <div class="column">
+            
+            <h3>Precautions</h3>
+            <ol style="font-size: larger;">
+                {% for p in precautions.0 %}
+                    <li>{{ p }}</li>
+                {% endfor %}
+            </ol>
+            <h3>Medications</h3>
+            <ol style="font-size: larger;">
+                {% for m in medications %}
+                    <li>{{ m }}</li>
+                {% endfor %}
+            </ol>
+            <h3>Workout</h3>
+            <ol style="font-size: larger;">
+                {% for w in workout %}
+                    <li>{{ w }}</li>
+                {% endfor %}
+            </ol>
+            <h3>Diets</h3>
+            <ol style="font-size: larger;">
+                {% for d in diets %}
+                    <li>{{ d }}</li>
+                {% endfor %}
+            </ol>
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock body %}
